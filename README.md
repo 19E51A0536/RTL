@@ -12,4 +12,4 @@ The aim of this experiment is to observe the interference of two light waves.
    - java script
    - node js
 
-## It contains all the html,css,java script files along with the dependent files for the funtioning of the experiment in the dashboard.
+# It contains all the html,css,java script files along with the dependent files for the funtioning of the experiment in the dashboard.
