@@ -31,6 +31,10 @@ The aim of this experiment is to observe the interference of two light waves.
   
 **function myTimer()**
   * It is used for the countdown timer.
+  
+
+  
+ 
 
   
 
