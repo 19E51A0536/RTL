@@ -7,9 +7,9 @@ The aim of this experiment is to observe the interference of two light waves.
   - Visual Studios
  
  * Languages Used
-  - html
-  - css
-  - java script
-  - node js
+   - html
+   - css
+   - java script
+   - node js
 
 open the young folder in the [rtldashbaord.zip]
