@@ -16,4 +16,24 @@ The aim of this experiment is to observe the interference of two light waves.
 
 **Each file in detail**
 
+* young.html
+  - The outlook of the dashboard page
+  - The slider used in experiment is defined here.
+  - The plotly library is called here using <iframe> to display the interactive plot to the user.
+  - The leave() function is used for the leave session button.
+ 
+* young.css
+  - Used for designing the dashboard page with proper alignments.
+  - All the classes declared in the young.html are used here for alignments.
+  
+* script.js
+  - All the declared functions are defined here for the functionality of the dashboard.
+  
+**function myTimer()**
+  * It is used for the countdown timer.
+
+  
+
+  
+
 
