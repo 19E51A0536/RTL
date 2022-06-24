@@ -31,6 +31,19 @@ The aim of this experiment is to observe the interference of two light waves.
   
 **function myTimer()**
   * It is used for the countdown timer.
+
+**slider.onchange**
+  *updating the slider on change of input by the user.
+
+ **function leave()**
+  * It is used to go back to home page using location.href and also turning off the usage key.
+
+*Blynk API*
+  fetch('https://blynk.cloud/external/api/update?token=ilEv4NM3BlZSMolddR7EsuurFMx6DR5a&v5=0')*//used to bring the usage key to the intial state*
+  
+  
+
+    
   
 
   
