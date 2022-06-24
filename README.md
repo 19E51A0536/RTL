@@ -41,6 +41,20 @@ The aim of this experiment is to observe the interference of two light waves.
 *Blynk API*
   fetch('https://blynk.cloud/external/api/update?token=ilEv4NM3BlZSMolddR7EsuurFMx6DR5a&v5=0')*//used to bring the usage key to the intial state*
   
+#### main.js
+* The whole working of the experiment is based on this main.js 
+  
+**function young_exp()**
+  -It first checks whether the device is online or not using isHardwareConnected blynk api
+   fetch('https://blynk.cloud/external/api/isHardwareConnected?token=ilEv4NM3BlZSMolddR7EsuurFMx6DR5a')
+  - If the device is online it will check the status of the usage button using 
+  fetch('https://blynk.cloud/external/api/get?token=ilEv4NM3BlZSMolddR7EsuurFMx6DR5a&v5')
+    - If its value is "0" then it allots the setup to the user by redirecting to young.html and then turns its value to "1"
+      fetch('https://blynk.cloud/external/api/update?token=ilEv4NM3BlZSMolddR7EsuurFMx6DR5a&v5=1')
+    -If its already "1" it pops an alert saying "Setup is already in use"
+ -If the device is offline it will display an alert saying " Device is offline" and sends an alert mail to the admin.
+  
+  
   
 
     
