@@ -63,6 +63,17 @@ The aim of this experiment is to observe the interference of two light waves.
     If the device is offline it will display an alert saying " Device is offline" and sends an alert mail to the admin.
   
   
+ #### Blynk switches
+
+* Usage(v5)
+  - checks the status of the experiment usage 
+    - if(0)--> not in use
+    - if(1)--> in use
+    
+* Slider(v4)
+  - The virtual pin of slider in blynk
+    - Changes depending upon the input given by the user
+
   
 
     
