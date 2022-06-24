@@ -1,4 +1,4 @@
-## REMOTE TRIGGERED LABS
+## REMOTE LABS
 ### Young's Double Slit Experiment
 
 The aim of this experiment is to observe the interference of two light waves.
