@@ -20,6 +20,7 @@ The aim of this experiment is to observe the interference of two light waves.
   - The outlook of the dashboard page
   - The slider used in experiment is defined here.
   - The plotly library is called here using <iframe> to display the interactive plot to the user.
+  -The actual code responsible for the interactive plot is written in raspberry pi code.
   - The leave() function is used for the leave session button.
  
 * young.css
