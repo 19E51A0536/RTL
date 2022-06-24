@@ -40,7 +40,7 @@ The aim of this experiment is to observe the interference of two light waves.
 
 *Blynk API*
   
-  fetch('https://blynk.cloud/external/api/update?token=ilEv4NM3BlZSMolddR7EsuurFMx6DR5a&v5=0')* //used to bring the usage key to the intial state *
+  fetch('https://blynk.cloud/external/api/update?token=ilEv4NM3BlZSMolddR7EsuurFMx6DR5a&v5=0') *//used to bring the usage key to the intial state*
   
 #### main.js
 * The whole working of the experiment is based on this main.js 
