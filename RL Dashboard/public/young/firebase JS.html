@@ -1,0 +1,110 @@
+ <!--how we can store and retrieve images from firebase using javascript-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Save & Load Image from Firebase Storage JS</title>
+</head>
+<body>
+    <style>
+        img{height:200px; width:200px;border:2px solid black;}
+    </style>
+    Image Name<input id="namebox" type="text"><br><br>
+    <img id="myimg"><label id="UpProgress"></label> <br><br>
+
+    <button id="select">Select Image</button>
+    <button id="upload">Upload Image</button>
+    <button id="retrieve">Retrieve Image</button>
+<!-- --------------FIREBASE LIBRARIES---------------- -->
+<script src="https://www.gstatic.com/firebasejs/7.20.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.20.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.20.0/firebase-database.js"></script> 
+<script src="https://www.gstatic.com/firebasejs/7.20.0/firebase-storage.js"></script> 
+
+
+<script id="MainScript">
+    //**************VARIABLES********************//
+var ImgName,ImgUrl;
+var files= [];
+var reader;
+    //*****************CONFIGURTION*****************//
+    const firebaseConfig = {
+        apiKey: "AIzaSyCRm4PP4DqW4q_eKKlUdwhoQFxmEYLGucU",
+        authDomain: "remote-firebase-1e5ce.firebaseapp.com",
+        databaseURL: "https://remote-firebase-1e5ce-default-rtdb.asia-southeast1.firebasedatabase.app",
+        projectId: "remote-firebase-1e5ce",
+        storageBucket: "remote-firebase-1e5ce.appspot.com",
+        messagingSenderId: "440048766222",
+        appId: "1:440048766222:web:cfeda64d2d339fe4189b5f",
+        measurementId: "G-E8EKDHCX8R"
+      };
+      
+      // Initialize Firebase
+      const app = firebase.initializeApp(firebaseConfig);
+     // const analytics = firebase.getAnalytics(app);
+  
+//**************SELECTION PROCESS********************//
+
+        document.getElementById("select").onclick=function(e){
+            
+            var input=document.createElement('input');
+            input.type='file';
+            input.click(); 
+            input.onchange=e=>{
+                files=e.target.files;
+                reader = new FileReader();
+                reader.onload=function(){
+                    document.getElementById("myimg").src=reader.result;
+                }
+                reader.readAsDataURL(files[0]);
+            }
+            input.click();
+        }
+       
+//**************UPLOAD PROCESS********************//
+//**************uploading picture to the storage********************//
+        document.getElementById('upload').onclick=function(){
+            ImgName=document.getElementById('namebox').value;
+            var uploadTask=firebase.storage().ref('/Images'+ImgName+".png").put(files[0]);
+            uploadTask.on('state_changed',function(snapshot){
+                var progress=(snapshot.bytesTransferred/snapshot.totalBytes)*100;
+                document.getElementById('UpProgress').innerHTML='Upload'+progress+'%';
+            },
+
+//**************error handling********************//
+            function(error){
+                alert('error in saving the image');
+            },
+//*************submit image link to the database********************//
+            function(){
+                uploadTask.snapshot.ref.getDownloadURL().then(function(url){
+                    ImgUrl=url;
+               
+                firebase.database().ref('Pictures/'+ImgName).set({
+                    Name: ImgName,
+                    Link:ImgUrl
+                });
+                alert('image added successfully');
+            }
+            
+            );
+        });
+
+        }
+//**************Retrival Process********************//
+
+        document.getElementById('retrieve').onclick=function(){
+            ImgName=document.getElementById('namebox').value;
+            firebase.database().ref('Pictures/'+ImgName).on('value',function(snapshot){
+                document.getElementById('myimg').src=snapshot.val().Link;
+            
+            });
+        }
+
+</script>
+</body>
+</html>
+  
